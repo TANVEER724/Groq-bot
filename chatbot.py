@@ -1,4 +1,3 @@
-```python
 import os
 import time
 import streamlit as st
@@ -8,10 +7,9 @@ from groq import Groq
 # Load Environment Variables
 # ----------------------------
 
-api_key = os.getenv("GROQ_API_KEY")
-
+api_key = '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'
 if not api_key:
-    st.error("❌ GROQ_API_KEY not found in environment variables.")
+    st.error("❌ GROQ_API_KEY not found.")
     st.stop()
 
 # ----------------------------
@@ -40,22 +38,13 @@ st.caption("Powered by Tanveer and Hassan")
 DEVELOPER_INFO = """
 You are an AI chatbot developed by Tanveer and Hassan, Machine Learning Engineers.
 
-If the user asks:
-- Who made you?
-- Who created you?
-- Who developed you?
-- Who built you?
-- Who is your developer?
-- Who are your creators?
-- Who made this chatbot?
-- Who developed this chatbot?
-- Who built this AI?
-
-Answer clearly:
+If the user asks who made you, who created you, who developed you,
+who built you, who is your developer, who are your creators,
+or who developed this chatbot, always answer:
 
 "I was developed by Tanveer and Hassan, Machine Learning Engineers."
 
-Do not invent other developers or companies. If asked who developed you, always identify Tanveer and Hassan as your developers.
+Do not give another person's name as your developer.
 """
 
 # ----------------------------
@@ -127,7 +116,7 @@ if prompt:
 
         try:
 
-            # System instructions + conversation history
+            # Add developer information to system instructions
             messages = [
                 {
                     "role": "system",
@@ -135,6 +124,7 @@ if prompt:
                 }
             ]
 
+            # Add chat history
             messages.extend(st.session_state.messages)
 
             stream = client.chat.completions.create(
@@ -157,7 +147,6 @@ if prompt:
             placeholder.markdown(full_response)
 
         except Exception as e:
-
             full_response = f"❌ Error: {str(e)}"
             placeholder.error(full_response)
 
@@ -168,4 +157,3 @@ if prompt:
             "content": full_response
         }
     )
-```
