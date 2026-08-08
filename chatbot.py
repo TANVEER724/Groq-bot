@@ -7,7 +7,7 @@ from groq import Groq
 # Load Environment Variables
 # ----------------------------
 
-api_key = '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'
+api_key = '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'
 
 if not api_key:
     st.error("❌ GROQ_API_KEY not found in .env file.")
