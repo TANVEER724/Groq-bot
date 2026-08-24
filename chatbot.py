@@ -7,7 +7,8 @@ from groq import Groq
 # Load Environment Variables
 # ----------------------------
 
-api_key = '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'
+api_key = st.secrets["GROQ_API_KEY"]
+
 if not api_key:
     st.error("❌ GROQ_API_KEY not found.")
     st.stop()
