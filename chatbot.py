@@ -54,16 +54,15 @@ Do not give another person's name as your developer.
 with st.sidebar:
     st.header("⚙️ Settings")
 
-    model = st.selectbox(
-        "Choose Model",
-        (
-            "llama-3.3-70b-versatile",
-            "llama-3.1-8b-instant",
-            "gemma2-9b-it",
-            "meta-llama/llama-4-scout-17b-16e-instruct"
-        )
+   model = st.selectbox(
+    "Choose Model",
+    (
+        "llama-3.3-70b-versatile",
+        "llama-3.1-8b-instant",
+        "gemma2-9b-it",
+        "meta-llama/llama-4-scout-17b-16e-instruct"
     )
-
+)
     temperature = st.slider(
         "Temperature",
         0.0,
