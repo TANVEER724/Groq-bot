@@ -52,18 +52,20 @@ Do not give another person's name as your developer.
 # Sidebar
 # ----------------------------
 
+
 with st.sidebar:
     st.header("⚙️ Settings")
 
-   model = st.selectbox(
-    "Choose Model",
-    (
-        "llama-3.3-70b-versatile",
-        "llama-3.1-8b-instant",
-        "gemma2-9b-it",
-        "meta-llama/llama-4-scout-17b-16e-instruct"
+    model = st.selectbox(
+        "Choose Model",
+        (
+            "openai/gpt-oss-120b",
+            "openai/gpt-oss-20b",
+            "llama-3.3-70b-versatile",
+            "llama-3.1-8b-instant"
+        )
     )
-)
+
     temperature = st.slider(
         "Temperature",
         0.0,
@@ -75,7 +77,6 @@ with st.sidebar:
     if st.button("🗑 Clear Chat"):
         st.session_state.messages = []
         st.rerun()
-
 # ----------------------------
 # Chat History
 # ----------------------------
